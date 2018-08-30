@@ -1,0 +1,6 @@
+<ul id = "cart_menu">
+	<% @cartegories.each do |cartegory| %>
+		<li class = "cart_item" ><a href = "#"><%=cartegory.cart_type%><li>
+	<% end %>
+	<li><%= link_to "Add a cartegory...", new_cartegory_path %><li>
+</ul>

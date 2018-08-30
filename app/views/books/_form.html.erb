@@ -1,0 +1,47 @@
+<div class = "book_form">
+<%= form_with(model: book, local: true) do |form| %>
+	 <% if book.errors.any? %>
+		<div id="error_explanation">
+		<h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
+
+		<ul>
+			<% book.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+			<% end %>
+		</ul>
+		</div>
+	 <% end %>
+	<fieldset>
+	<legend>Enter Book Details</legend>
+
+  <div class="field">
+    <%= form.label :book_name , 'Title'%>
+    <%= form.text_field :book_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :book_image, 'Image' %>
+    <%= form.text_field :book_image%>
+  </div>
+
+  <div class="field">
+    <%= form.label :cartegory_id, 'Type' %>
+    <%= form.select :cartegory_id, @cartegories.collect{|cartegory| [cartegory.name, cartegory.id]}, :prompt => "Select a book type..." %>
+  </div>
+
+  <div class="field">
+    <%= form.label :book_author ,'Author'%>
+    <%= form.text_field :book_author %>
+  </div>
+
+  <div class="field">
+    <%= form.label :book_price, 'Price' %>
+    <%= form.text_field :book_price %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+</fieldset>
+<% end %>
+</div>

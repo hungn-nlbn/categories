@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  book_name: MyString
+  book_image: MyString
+  book_author: MyString
+  cartegory_id: 1
+  book_price: 9.99
+
+two:
+  book_name: MyString
+  book_image: MyString
+  book_author: MyString
+  cartegory_id: 1
+  book_price: 9.99

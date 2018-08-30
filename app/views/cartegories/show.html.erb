@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong><%= @cartegory.name %></strong>
+</p>
+	<table>
+		<tbody>
+			<% @cartegory.books.each do |book| %>
+				<tr class = "<%= cycle('list_line_odd','list_line_even')%>">
+					<td>
+						<%= image_tag(book.book_image, :class => 'list_image') %>
+					</td>
+					<td class = "list_description">
+						<dl>
+							<dt><%= book.book_name %></dt>
+							<dd>Tác giả: <%= book.book_author %></dd>
+							<dd>Thể loại: <%= book.cartegory.name %></dd>
+							<dd><colspan="4"></dd>
+						<dl>
+						<div class="prince_line">
+							<span class = "price"><%= number_to_currency(book.book_price)%></span>
+						</div>
+					</td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+<%= link_to 'Edit', edit_cartegory_path(@cartegory) %> |
+<%= link_to 'New Book', new_book_path(@cartegory) %> |
+<%= link_to 'Back', cartegories_path %>

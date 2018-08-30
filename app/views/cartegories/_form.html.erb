@@ -1,0 +1,28 @@
+<%= form_with(model: cartegory, local: true) do |form| %>
+  <% if cartegory.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cartegory.errors.count, "error") %> prohibited this cartegory from being saved:</h2>
+
+      <ul>
+      <% cartegory.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name , 'Name'%>
+    <%= form.text_field :name %>
+  </div>
+
+  
+  <div class="field">
+    <%= form.label :cartegory_id, 'Parent cartegory' %>
+    <%= form.select :cartegory_id, @cartegories.collect{|cartegory| [cartegory.name, cartegory.id]}, :prompt => "Select a cartegory" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
