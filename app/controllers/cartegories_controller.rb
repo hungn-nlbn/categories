@@ -1,5 +1,6 @@
 class CartegoriesController < ApplicationController
   before_action :set_cartegory, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /cartegories
   # GET /cartegories.json
